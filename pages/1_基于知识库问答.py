@@ -87,8 +87,6 @@ for msg in st.session_state.messages:
 
 
 def send_message():
-    # 数据传输
-    url = "http://localhost:5000/api-dev/qa/get_answer"
     payload = json.dumps({
         "chat_type": st.session_state.chat_type,
         "messages": st.session_state.messages,
@@ -96,10 +94,14 @@ def send_message():
         "top_p": st.session_state.top_p,
         "temperature": st.session_state.temperature,
         "repetition_penalty": st.session_state.repetition_penalty,
-        "n_results": st.session_state.n_results,
     })
-    print(type(payload), payload)
+    # print(type(payload), payload)
     headers = {'Content-Type': 'application/json'}
+    url_map = {
+        "数据结构": "http://xtu_zklx.vip.cpolar.cn/api-dev/qa/get_answer",
+        "软件工程与项目管理": "http://localhost:5000/api-dev/qa/get_answer2",
+    }
+    url = url_map.get(option1)
     response = requests.post(url, data=payload, headers=headers)
     # print(response, type(response))
     return response.text
