@@ -98,7 +98,7 @@ def send_message():
     # print(type(payload), payload)
     headers = {'Content-Type': 'application/json'}
     url_map = {
-        "数据结构": "http://xtu_zklx.vip.cpolar.cn/api-dev/qa/get_answer",
+        "数据结构": "http://xtu_zklx.vip.cpolar.top/api-dev/qa/get_answer",
         "软件工程与项目管理": "http://localhost:5000/api-dev/qa/get_answer2",
     }
     url = url_map.get(option1)
