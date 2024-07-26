@@ -1,6 +1,6 @@
-# 🎈 Blank app template
+#  智课灵犀
 
-A simple Streamlit app template for you to modify!
+湘潭大学计算机学院
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
 
