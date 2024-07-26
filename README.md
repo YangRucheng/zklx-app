@@ -2,9 +2,9 @@
 
 湘潭大学计算机学院
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://zklx-xtu.streamlit.app/)
 
-### How to run it on your own machine
+### 运行
 
 1. Install the requirements
 
