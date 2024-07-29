@@ -64,7 +64,7 @@ st.caption("🌈 基于预先构建的知识库来进行问答")
 
 
 # 状态
-if "chat_type" not in st.session_state or st.session_state["chat_type"] != "chat":
+if "chat_type" not in st.session_state or st.session_state["chat_type"] == "chat":
     st.session_state["chat_type"] = "chat_rag"
 
 if "is_recording" not in st.session_state:
