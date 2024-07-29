@@ -94,6 +94,7 @@ def send_message():
         "top_p": st.session_state.top_p,
         "temperature": st.session_state.temperature,
         "repetition_penalty": st.session_state.repetition_penalty,
+        "n_results": st.session_state.n_results,
     })
     # print(type(payload), payload)
     headers = {'Content-Type': 'application/json'}
