@@ -34,17 +34,7 @@ with st.sidebar:
 
 st.markdown("""
     <style>
-        .reportview-container {
-            margin-top: -2em;
-        }
-        #MainMenu {visibility: hidden;}
-        .stDeployButton {display:none;}
-        footer {visibility: hidden;}
-        #stDecoration {display:none;}
         #GithubIcon {visibility: hidden;}
-        #MainMenu {
-          visibility: hidden;
-        }
     </style>
 """, unsafe_allow_html=True)
 
