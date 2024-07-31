@@ -17,9 +17,8 @@ st.set_page_config(
     layout="centered",
     page_icon=ICON,
     menu_items={
-        'jwxy': 'https://jwxy.xtu.edu.cn/'
+        'About': 'https://jwxy.xtu.edu.cn/'
     }
-
 )
 
 
