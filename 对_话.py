@@ -17,19 +17,11 @@ st.set_page_config(
     layout="centered",
     page_icon=ICON,
     menu_items={
-        'Get Help': 'https://www.yourwebsite.com/help',
-        'Report a bug': "https://www.yourwebsite.com/bug",
-        'About': "1"
+        '湘大计网院': 'https://jwxy.xtu.edu.cn/'
     }
 
 )
 
-hide_streamlit_style = """
-            <style>
-            footer {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 with st.sidebar:
     icon_text = f"""
