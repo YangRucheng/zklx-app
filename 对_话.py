@@ -18,6 +18,8 @@ st.set_page_config(
     page_icon=ICON,
 )
 
+
+
 with st.sidebar:
     icon_text = f"""
         <div class="icon-text-container" style="text-align: center;">
@@ -29,6 +31,18 @@ with st.sidebar:
         icon_text,
         unsafe_allow_html=True,
     )
+
+st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>
+""", unsafe_allow_html=True)
 
 st.sidebar.title('模型')
 option1 = st.sidebar.selectbox('课程', ['数据结构', '软件项目管理'])
