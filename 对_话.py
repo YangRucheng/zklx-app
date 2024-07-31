@@ -24,7 +24,7 @@ with st.sidebar:
     icon_text = f"""
         <div class="icon-text-container" style="text-align: center;">
             <img src='data:image/png;base64,{ICON_base64}' alt='icon' style='width: 70px; height: 70px; margin: 0 auto; display: block;'>
-            <span style='font-size: 24px;'>课程助手--智课灵犀</span>
+            <span style='font-size: 24px;'>课程助手--智课灵犀（维护中）</span>
         </div>
         """
     st.markdown(
@@ -34,7 +34,9 @@ with st.sidebar:
 
 web_text = f"""
     <style>
-        #GithubIcon {visibility: hidden;}
+        #GithubIcon {
+            visibility:hidden;
+        }
     </style>
     """
 
