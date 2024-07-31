@@ -16,6 +16,10 @@ st.set_page_config(
     page_title="智课灵犀-对话",
     layout="centered",
     page_icon=ICON,
+    menu_items={
+        'Get Help': 'https://www.yourwebsite.com/help',
+        'Report a bug': "https://www.yourwebsite.com/bug",
+    }
 )
 
     
