@@ -41,8 +41,10 @@ st.markdown("""
         .stDeployButton {display:none;}
         footer {visibility: hidden;}
         #stDecoration {display:none;}
+        #GithubIcon {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
+
 
 st.sidebar.title('模型')
 option1 = st.sidebar.selectbox('课程', ['数据结构', '软件项目管理'])
