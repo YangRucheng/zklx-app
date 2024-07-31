@@ -293,7 +293,7 @@ function SayOutLoud(text) {
 
 async function SayOut() {
     console.log("297");
-    const response = await fetch('http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_text', {
+    const response = await fetch('https://zklx.xtu.vip.cpolar.top/api-dev/qa/get_text', {
         method: 'POST', // 注意这里使用POST方法，尽管没有请求体
     });
     const text = await response.text();
