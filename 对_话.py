@@ -16,9 +16,17 @@ st.set_page_config(
     page_title="智课灵犀-对话",
     layout="centered",
     page_icon=ICON,
+    'Get Help': 'https://www.extremelycoolapp.com/help',
+    'Report a bug': "https://www.extremelycoolapp.com/bug",
+    'About': "# This is a header. This is an *extremely* cool app!"
 )
 
-
+hide_st_style = """
+    <style>
+        .css-10pw50 {display: none;}
+    </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 with st.sidebar:
     icon_text = f"""
