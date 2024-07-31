@@ -16,10 +16,20 @@ st.set_page_config(
     page_title="智课灵犀-对话",
     layout="centered",
     page_icon=ICON,
+    menu_items={
+        'Get Help': 'https://www.yourwebsite.com/help',
+        'Report a bug': "https://www.yourwebsite.com/bug",
+        'About': "1"
+    }
 
 )
 
-    
+hide_streamlit_style = """
+            <style>
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 with st.sidebar:
     icon_text = f"""
