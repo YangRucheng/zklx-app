@@ -17,7 +17,7 @@ st.set_page_config(
     layout="centered",
     page_icon=ICON,
     menu_items={
-        'About': 'https://jwxy.xtu.edu.cn/'
+        'About': '湘潭大学计算机学院官网：https://jwxy.xtu.edu.cn/'
     }
 )
 
