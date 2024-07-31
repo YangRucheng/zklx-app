@@ -17,7 +17,7 @@ st.set_page_config(
     layout="centered",
     page_icon=ICON,
     menu_items={
-        '湘大计网院': 'https://jwxy.xtu.edu.cn/'
+        'jwxy': 'https://jwxy.xtu.edu.cn/'
     }
 
 )
