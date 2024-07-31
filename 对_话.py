@@ -37,19 +37,6 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-web_text = f"""
-    <style>
-        #GithubIcon {
-            visibility:hidden;
-        }
-    </style>
-    """
-
-st.markdown(
-    web_text,
-    unsafe_allow_html=True
-)
-
 
 st.sidebar.title('模型')
 option1 = st.sidebar.selectbox('课程', ['数据结构', '软件项目管理'])
