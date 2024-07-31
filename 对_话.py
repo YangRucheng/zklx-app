@@ -59,7 +59,7 @@ with st.sidebar.expander("文本生成"):
     st.session_state["temperature"] = parameter_3
     st.session_state["repetition_penalty"] = parameter_4
 
-st.title("🪶 智课灵犀（维护中）")
+st.title("🪶 智课灵犀-维护中")
 st.caption("🌈 由湘潭大学计算机学院开发")
 
 # 状态
