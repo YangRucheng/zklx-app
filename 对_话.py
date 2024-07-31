@@ -16,9 +16,11 @@ st.set_page_config(
     page_title="智课灵犀-对话",
     layout="centered",
     page_icon=ICON,
-    'Get Help': 'https://www.extremelycoolapp.com/help',
-    'Report a bug': "https://www.extremelycoolapp.com/bug",
-    'About': "# This is a header. This is an *extremely* cool app!"
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    },
 )
 
 hide_st_style = """
