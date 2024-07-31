@@ -32,13 +32,16 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-st.markdown("""
+web_text = f"""
     <style>
         #GithubIcon {visibility: hidden;}
     </style>
-""", unsafe_allow_html=True)
+    """
 
-
+st.markdown(
+    web_text,
+    unsafe_allow_html=True
+)
 
 
 st.sidebar.title('模型')
