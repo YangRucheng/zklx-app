@@ -29,7 +29,7 @@ with st.sidebar:
     )
 
 st.sidebar.title('模型')
-option1 = st.sidebar.selectbox('课程', ['数据结构', '软件工程与项目管理'])
+option1 = st.sidebar.selectbox('课程', ['数据结构', '软件项目管理'])
 
 st.sidebar.title('输入')
 option2 = st.sidebar.selectbox('方式', ['键盘', '语音'])
