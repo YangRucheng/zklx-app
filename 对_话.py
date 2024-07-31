@@ -16,19 +16,11 @@ st.set_page_config(
     page_title="智课灵犀-对话",
     layout="centered",
     page_icon=ICON,
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    },
 )
 
-hide_st_style = """
-    <style>
-        .css-10pw50 {display: none;}
-    </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+with st.sidebar:
+    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
+    
 
 with st.sidebar:
     icon_text = f"""
@@ -41,6 +33,9 @@ with st.sidebar:
         icon_text,
         unsafe_allow_html=True,
     )
+    "[View the source code](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py)"
+    "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
+
 
 
 st.sidebar.title('模型')
