@@ -26,7 +26,7 @@ with st.sidebar:
     icon_text = f"""
         <div class="icon-text-container" style="text-align: center;">
             <img src='data:image/png;base64,{ICON_base64}' alt='icon' style='width: 70px; height: 70px; margin: 0 auto; display: block;'>
-            <span style='font-size: 24px;'>课程助手--智课灵犀</span>
+            <span style='font-size: 24px;'>课程助手--智课灵犀（维护中）</span>
         </div>
         """
     st.markdown(
@@ -64,7 +64,7 @@ with st.sidebar.expander("文本生成"):
     st.session_state["temperature"] = parameter_3
     st.session_state["repetition_penalty"] = parameter_4
 
-st.title("🪶 智课灵犀")
+st.title("🪶 智课灵犀（维护中）")
 st.caption("🌈 由湘潭大学计算机学院开发")
 
 # 状态
