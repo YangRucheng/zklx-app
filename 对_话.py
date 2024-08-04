@@ -4,6 +4,7 @@ import base64
 import requests
 import json
 from voice_toolkit import voice_toolkit
+import traceback
 
 
 icon_path = "images/院徽.ico"
@@ -107,9 +108,14 @@ def send_message():
     }
     
     url = url_map.get(option1)
-    response = requests.post(url, data=payload, headers=headers)
-    # print(response, type(response))
-    return response.text
+    try:
+        response = requests.post(url, data=payload, headers=headers)
+         # print(response, type(response))
+        return response.text
+    except Exception as e:
+        error_message = f"错误: {e}\n{traceback.format_exc()}"
+        print(error_message)
+        return "未连接到服务器", 500
 
 
 
