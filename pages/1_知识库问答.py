@@ -13,7 +13,7 @@ with open(icon_path, "rb") as img_file:
     ICON_base64 = base64.b64encode(img_file.read()).decode()
 
 st.set_page_config(
-    page_title="智课灵犀-基于知识库问答",
+    page_title="智课灵犀-知识库问答",
     layout="centered",
     page_icon=ICON,
 )
@@ -65,8 +65,10 @@ st.caption("🌈 基于预先构建的知识库来进行问答")
 
 
 # 状态
-if "chat_type" not in st.session_state or st.session_state["chat_type"] == "chat":
-    st.session_state["chat_type"] = "chat_rag"
+if option1 == "数据结构":
+    st.session_state["chat_type"] = "chat_rag_Data_Structures"
+elif option1 == "软件项目管理":
+    st.session_state["chat_type"] = "chat_rag_Software_Project_Management"
 
 if "is_recording" not in st.session_state:
     st.session_state.is_recording = False
