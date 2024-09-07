@@ -49,13 +49,13 @@ with st.sidebar.expander("文本生成"):
     if "max_new_tokens" not in st.session_state:
         st.session_state["max_new_tokens"] = 500
         st.session_state["top_p"] = 0.9
-        st.session_state["temperature"] = 0.1
-        st.session_state["repetition_penalty"] = 1.0
+        st.session_state["temperature"] = 0.3
+        st.session_state["repetition_penalty"] = 1.1
     parameter_1 = st.slider('max_new_tokens', min_value=50, max_value=1000,
                                     value=st.session_state.max_new_tokens,
                                     step=50)
     parameter_2 = st.slider('top_p', min_value=0.5, max_value=0.95, value=st.session_state.top_p, step=0.01)
-    parameter_3 = st.slider('temperature', min_value=0.1, max_value=5.0, value=st.session_state.temperature,
+    parameter_3 = st.slider('temperature', min_value=0.1, max_value=3.0, value=st.session_state.temperature,
                                     step=0.1)
     parameter_4 = st.slider('repetition_penalty', min_value=0.5, max_value=5.0,
                                     value=st.session_state.repetition_penalty, step=0.1)
