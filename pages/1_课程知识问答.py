@@ -29,7 +29,7 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-st.sidebar.title('模型')
+st.sidebar.title('知识库')
 option1 = st.sidebar.selectbox('课程', ['数据结构', '软件项目管理'])
 
 st.sidebar.title('输入')
