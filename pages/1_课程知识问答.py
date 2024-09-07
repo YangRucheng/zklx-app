@@ -13,7 +13,7 @@ with open(icon_path, "rb") as img_file:
     ICON_base64 = base64.b64encode(img_file.read()).decode()
 
 st.set_page_config(
-    page_title="智课灵犀-知识库问答",
+    page_title="智课灵犀-课程知识问答",
     layout="centered",
     page_icon=ICON,
 )
