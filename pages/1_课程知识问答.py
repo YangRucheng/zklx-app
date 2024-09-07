@@ -41,7 +41,7 @@ if "n_results" not in st.session_state:
 if "max_new_tokens" not in st.session_state:
     st.session_state["max_new_tokens"] = 500
     st.session_state["top_p"] = 0.9
-    st.session_state["temperature"] = 0.3
+    st.session_state["temperature"] = 0.1
     st.session_state["repetition_penalty"] = 1.0
 st.sidebar.title('参数')
 with st.sidebar.expander("文本生成"):
