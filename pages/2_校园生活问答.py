@@ -34,7 +34,7 @@ option2 = st.sidebar.selectbox('方式', ['键盘', '语音'])
 
 # 添加滑动条
 if "n_results" not in st.session_state:
-    st.session_state["n_results"] = 3
+    st.session_state["n_results"] = 2
 if "max_new_tokens" not in st.session_state:
     st.session_state["max_new_tokens"] = 500
     st.session_state["top_p"] = 0.9
