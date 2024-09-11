@@ -47,7 +47,7 @@ option2 = st.sidebar.selectbox('方式', ['键盘', '语音'])
 st.sidebar.title('参数')
 with st.sidebar.expander("文本生成"):
     if "max_new_tokens" not in st.session_state:
-        st.session_state["max_new_tokens"] = 500
+        st.session_state["max_new_tokens"] = 800
         st.session_state["top_p"] = 0.9
         st.session_state["temperature"] = 0.1
         st.session_state["repetition_penalty"] = 1.1
