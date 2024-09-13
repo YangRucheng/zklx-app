@@ -25,6 +25,7 @@ with st.sidebar:
     icon_text = f"""
         <div class="icon-text-container" style="text-align: center;">
             <img src='data:image/png;base64,{ICON_base64}' alt='icon' style='width: 70px; height: 70px; margin: 0 auto; display: block;'>
+
             <span style='font-size: 24px;'>课程助手--智课灵犀</span>
         </div>
         """
@@ -48,8 +49,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("💯 智课灵犀")
-st.caption("🌈 成绩统计小工具（声明：本程序对转专业同学以及留级同学存在考虑不周的情况！）")
-print('声明：本程序对转专业同学以及留级同学的存在考虑不周的情况！\n')
+st.caption("🌈 成绩统计小工具（声明：成绩报表的类型需为“最大成绩”，且本程序对转专业同学以及留级同学存在考虑不周的情况！）")
 
 # 定义全局变量以存储成绩数据
 cj = []
