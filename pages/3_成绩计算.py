@@ -90,8 +90,9 @@ def count_score(pdf_data, cla_list, term=None):
             for table in page.extract_tables():
                 for row in table:
                     if row[1] in cla_list and ((not term) or (row[4] in term)):
-                        sum_credit += float(row[2])
-                        sum_num += 1
+                        if row[3] != "缓考":
+                            sum_credit += float(row[2])
+                            sum_num += 1
                         if is_number(row[3]):
                             sum_score2 += float(row[3])
                             sum_score += float(row[3]) * float(row[2])
@@ -100,8 +101,9 @@ def count_score(pdf_data, cla_list, term=None):
                             sum_score += dict.get(row[3], 0) * float(row[2])
 
                     if row[6] in cla_list:
-                        sum_credit += float(row[7])
-                        sum_num += 1
+                        if row[8] != "缓考":
+                            sum_credit += float(row[7])
+                            sum_num += 1
                         if is_number(row[8]):
                             sum_score2 += float(row[8])
                             sum_score += float(row[8]) * float(row[7])
