@@ -100,7 +100,7 @@ def count_score(pdf_data, cla_list, term=None):
                             sum_score2 += dict.get(row[3], 0)
                             sum_score += dict.get(row[3], 0) * float(row[2])
 
-                    if row[6] in cla_list:
+                    if row[6] in cla_list and ((not term) or (row[9] in term)):
                         if row[8] != "缓考":
                             sum_credit += float(row[7])
                             sum_num += 1
