@@ -138,7 +138,7 @@ def main():
     cla = st.radio('请选择成绩统计类型：', ('专业必修成绩', '专业必修+专业选修成绩'))
     cla_list = ["必修"] if cla == '专业必修成绩' else ["必修", "选修"]
 
-    term_input = st.text_input("请输入你要统计的学期，用空格隔开，如\"5 6 7\"，为空则默认统计所有学期，第a学期的缓考成绩可能算入a+1学期。")
+    term_input = st.text_input("请输入要统计的学期，用空格隔开，如\"5 6 7\"，为空则统计所有学期，第a学期的缓考成绩可能算入a+1学期。")
     term = term_input.split() if term_input else []
     term.sort()
     term_str = '_'.join(term) if term else ""
