@@ -116,6 +116,7 @@ def count_score(pdf_data, cla_list, term=None):
                 '学号': text[id_pos:(id_pos + 12)],
                 '加权平均': round(sum_score / sum_credit, 3) if sum_credit else 0,
                 '平均': round(sum_score2 / sum_num, 3) if sum_num else 0,
+                '获得的学分': sum_credit
             })
 
 
@@ -155,12 +156,12 @@ def main():
             workbook = xw.Workbook(output, {'in_memory': True})
             worksheet1 = workbook.add_worksheet("sheet1")  # 创建子表
 
-            title = ['姓名', '学号', '加权平均', '平均']
+            title = ['姓名', '学号', '加权平均', '平均', '获得的学分']
             worksheet1.write_row('A1', title)  # 从A1单元格开始写入表头
 
             i = 2  # 从第二行开始写入数据
             for j in range(len(cj)):
-                insertData = [cj[j]["姓名"], cj[j]["学号"], cj[j]["加权平均"], cj[j]["平均"]]
+                insertData = [cj[j]["姓名"], cj[j]["学号"], cj[j]["加权平均"], cj[j]["平均"], cj[j]["获得的学分"]]
                 row = 'A' + str(i)
                 worksheet1.write_row(row, insertData)
                 i += 1
