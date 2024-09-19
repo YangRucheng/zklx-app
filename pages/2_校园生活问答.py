@@ -104,7 +104,7 @@ def send_message():
     except Exception as e:
         error_message = f"错误: {e}\n{traceback.format_exc()}"
         print(error_message)
-        return "未连接到服务器", 500
+        return "您的网络状态不佳，请稍后再试", 500
 
 
 
