@@ -18,7 +18,8 @@ st.set_page_config(
     layout="centered",
     page_icon=ICON,
     menu_items={
-        'About': '湘潭大学计算机学院官网：https://jwxy.xtu.edu.cn/'
+        'About'
+: '湘潭大学计算机学院官网：https://jwxy.xtu.edu.cn/'
     }
 )
 
@@ -109,14 +110,29 @@ def send_message():
     
 #    url = url_map.get(option1)
     url = "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer"
+    #try:
+    #   response = requests.post(url, data=payload, headers=headers)
+    #     # print(response, type(response))
+    #    return response.text
+    #except Exception as e:
+    #    error_message = f"错误: {e}\n{traceback.format_exc()}"
+    #    print(error_message)
+    #    return "您的网络状态不佳，请稍后再试", 500
     try:
-        response = requests.post(url, data=payload, headers=headers)
-         # print(response, type(response))
-        return response.text
+        response = requests.post(url, data=payload, headers=headers, timeout=15, verify=False)
+        if response.status_code == 200:
+            print(response.text)
+            return response.text
+        else:
+            print(response.status_code)
+            return f"请求失败，状态码：{response.status_code}", response.status_code
+    except requests.exceptions.Timeout:
+        print("请求超时，请稍后再试")
+        return "请求超时，请稍后再试", 504
     except Exception as e:
         error_message = f"错误: {e}\n{traceback.format_exc()}"
         print(error_message)
-        return "您的网络状态不佳，请稍后再试", 500
+        return "发生错误，请稍后再试", 500
 
 
 
