@@ -122,7 +122,7 @@ def send_message():
             return response.text
         else:
             print(response.status_code)
-            return f"请求失败，状态码：{response.status_code}", response.status_code
+            return f"请求失败，状态码：", response.status_code
     except requests.exceptions.Timeout:
         print("请求超时，请稍后再试")
         return "请求超时，请稍后再试", 504
