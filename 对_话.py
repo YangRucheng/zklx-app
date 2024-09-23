@@ -64,7 +64,7 @@ with st.sidebar.expander("文本生成"):
     st.session_state["repetition_penalty"] = parameter_4
 
 st.title("🪶 智课灵犀")
-st.caption("🌈 由湘潭大学计算机学院开发（声明：校园网正在维护中，暂时无法连接到服务器）")
+st.caption("🌈 由湘潭大学计算机学院开发（声明：因校园网络波动，可能暂时无法连接到服务器，请稍后再试）")
 
 # 状态
 if "chat_type" not in st.session_state or st.session_state["chat_type"] != "chat":
