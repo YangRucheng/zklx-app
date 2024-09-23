@@ -37,9 +37,6 @@ with st.sidebar:
     )
 
 
-#st.sidebar.title('模型')
-#option1 = st.sidebar.selectbox('课程', ['数据结构', '软件项目管理'])
-
 st.sidebar.title('输入')
 option2 = st.sidebar.selectbox('方式', ['键盘', '语音'])
 
@@ -67,7 +64,7 @@ with st.sidebar.expander("文本生成"):
     st.session_state["repetition_penalty"] = parameter_4
 
 st.title("🪶 智课灵犀")
-st.caption("🌈 由湘潭大学计算机学院开发")
+st.caption("🌈 由湘潭大学计算机学院开发（校园网正在维护中）")
 
 # 状态
 if "chat_type" not in st.session_state or st.session_state["chat_type"] != "chat":
