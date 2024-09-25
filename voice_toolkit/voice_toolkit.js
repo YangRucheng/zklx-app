@@ -292,13 +292,27 @@ function SayOutLoud(text) {
 
 
 async function SayOut() {
-    console.log("297");
-    const response = await fetch('https://zklx.xtu.vip.cpolar.top/api-dev/qa/get_text', {
-        method: 'POST', // 注意这里使用POST方法，尽管没有请求体
-    });
-    const text = await response.text();
-    SayOutLoud(text);
+    try {
+        const response = await fetch('https://zklx.xtu.vip.cpolar.top/api-dev/qa/get_text', {
+            method: 'POST',
+        });
+
+        console.log("Response status:", response.status);
+        console.log("Response headers:", response.headers);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const text = await response.text();
+        console.log("Received text:", text);
+        SayOutLoud(text);
+    } catch (error) {
+        console.error("Error in SayOut:", error);
+        SayOutLoud("语音请求失败，请检查网络连接。");
+    }
 }
+
 
 SayOut();
 
