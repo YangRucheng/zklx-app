@@ -297,7 +297,7 @@ function SayOutLoud(text) {
 }
 
 
-async function SayOut(text) {
+async function SayOut() {
     try {
         const response = await fetch('https://zklx.xtu.vip.cpolar.top/api-dev/qa/get_text', {
             method: 'POST',
