@@ -297,28 +297,29 @@ function SayOutLoud(text) {
 }
 
 
-async function SayOut() {
+async function SayOut(text) {
     try {
         const response = await fetch('https://zklx.xtu.vip.cpolar.top/api-dev/qa/get_text', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: text }),
+            // 禁用 SSL 验证（仅用于开发环境）
+            agent: new https.Agent({ rejectUnauthorized: false })
         });
-
-        console.log("Response status:", response.status);
-        console.log("Response headers:", response.headers);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const text = await response.text();
-        console.log("Received text:", text);
-        SayOutLoud(text);
+        const data = await response.json();
+        console.log(data);
     } catch (error) {
-        console.error("Error in SayOut:", error);
+        console.error('Error in SayOut:', error);
         SayOutLoud("语音请求失败，请检查网络连接。");
     }
 }
-
 
 SayOut();
 
