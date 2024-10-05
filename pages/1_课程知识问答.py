@@ -102,11 +102,12 @@ def send_message():
     })
     # print(type(payload), payload)
     headers = {'Content-Type': 'application/json'}
-    url_map = {
-        "数据结构": "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer",
-        "软件项目管理": "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer",
-    }
-    url = url_map.get(option1)
+    # url_map = {
+    #     "数据结构": "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer",
+    #     "软件项目管理": "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer",
+    # }
+    # url = url_map.get(option1)
+    url = "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer"
     try:
         response = requests.post(url, data=payload, headers=headers)
          # print(response, type(response))
@@ -115,7 +116,6 @@ def send_message():
         error_message = f"错误: {e}\n{traceback.format_exc()}"
         print(error_message)
         return "您的网络状态不佳，请稍后再试", 500
-
 
 
 if option2 == "键盘":
