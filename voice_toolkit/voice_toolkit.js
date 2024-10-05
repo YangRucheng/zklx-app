@@ -304,9 +304,7 @@ async function SayOut(text) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ text: text }),
-            // 禁用 SSL 验证（仅用于开发环境）
-            agent: new https.Agent({ rejectUnauthorized: false })
+            body: JSON.stringify({ text: text })
         });
 
         if (!response.ok) {
@@ -317,9 +315,9 @@ async function SayOut(text) {
         console.log(data);
     } catch (error) {
         console.error('Error in SayOut:', error);
-        SayOutLoud("语音请求失败，请检查网络连接。");
     }
 }
+
 
 SayOut();
 
