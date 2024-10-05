@@ -46,7 +46,6 @@ with st.sidebar.expander("内容生成"):
         st.session_state["top_p"] = 0.9
         st.session_state["temperature"] = 0.2
         st.session_state["repetition_penalty"] = 1.1
-        st.session_state["image_count"] = 0
     parameter_1 = st.slider('max_new_tokens', min_value=50, max_value=1000,
                             value=st.session_state.max_new_tokens,
                             step=50)
@@ -55,14 +54,11 @@ with st.sidebar.expander("内容生成"):
                             step=0.1)
     parameter_4 = st.slider('repetition_penalty', min_value=0.5, max_value=5.0,
                             value=st.session_state.repetition_penalty, step=0.1)
-    parameter_6 = st.slider('image_count', min_value=0, max_value=5,
-                            value=st.session_state.image_count, step=1)
 
     st.session_state["max_new_tokens"] = parameter_1
     st.session_state["top_p"] = parameter_2
     st.session_state["temperature"] = parameter_3
     st.session_state["repetition_penalty"] = parameter_4
-    st.session_state["image_count"] = parameter_6
 
 st.title("🪶 智课灵犀")
 st.caption("🌈 由湘潭大学计算机学院开发（声明：因校园网络波动，可能暂时无法连接到服务器，请稍后再试）")
@@ -90,16 +86,6 @@ for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["message"])
 
 
-def base64_to_image(base64_str):
-    try:
-        img_data = base64.b64decode(base64_str)
-        img = Image.open(BytesIO(img_data))
-        return img
-    except Exception as e:
-        print(f"无法解码图像: {e}")
-        return None
-
-
 def send_message():
     payload = json.dumps({
         "chat_type": st.session_state.chat_type,
@@ -108,7 +94,6 @@ def send_message():
         "top_p": st.session_state.top_p,
         "temperature": st.session_state.temperature,
         "repetition_penalty": st.session_state.repetition_penalty,
-        "image_count": st.session_state.image_count,
     })
     # print(type(payload), payload)
     headers = {'Content-Type': 'application/json'}
@@ -127,8 +112,6 @@ def send_message():
         response_data = response.json()
         if "response_text" in response_data:
             result = {"response_text": response_data["response_text"]}
-            if "response_image" in response_data:
-                result["response_image"] = response_data["response_image"]
             return result
         
         else:
@@ -148,20 +131,8 @@ if option2 == "键盘":
         st.session_state.messages.append({"role": "user", "message": prompt})
         st.chat_message("user").write(prompt)
         answer = send_message()
-        if isinstance(answer, dict) and "response_text" in answer and "response_image" in answer:
-            st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
-            st.chat_message("assistant").write(answer["response_text"])
-
-            # 遍历 response_image 列表，解码每个图像
-            for image_dict in answer["response_image"]:
-                image_base64 = image_dict['image']
-                img = base64_to_image(image_base64)
-                if img is not None:
-                    st.image(img)
-
-        else:
-            st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
-            st.chat_message("assistant").write(answer["response_text"])
+        st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
+        st.chat_message("assistant").write(answer["response_text"])
         print(st.session_state)
 
 elif option2 == "语音":
@@ -180,19 +151,8 @@ elif option2 == "语音":
         st.session_state.messages.append({"role": "user", "message": prompt})
         st.chat_message("user").write(prompt)
         answer = send_message()
-        if isinstance(answer, dict) and "response_text" in answer and "response_image" in answer:
-            st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
-            st.chat_message("assistant").write(answer["response_text"])
-            # 遍历 response_image 列表，解码每个图像
-            for image_dict in answer["response_image"]:
-                image_base64 = image_dict['image']
-                img = base64_to_image(image_base64)
-                if img is not None:
-                    st.image(img)
-
-        else:
-            st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
-            st.chat_message("assistant").write(answer["response_text"])
+        st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
+        st.chat_message("assistant").write(answer["response_text"])
 
         # print(st.session_state)
 
