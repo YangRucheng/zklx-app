@@ -109,6 +109,7 @@ def send_message():
         "top_p": st.session_state.top_p,
         "temperature": st.session_state.temperature,
         "repetition_penalty": st.session_state.repetition_penalty,
+        "n_results": st.session_state.n_results,
         "image_count": st.session_state.image_count,
     })
     # print(type(payload), payload)
