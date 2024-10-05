@@ -99,23 +99,29 @@ def send_message():
         "temperature": st.session_state.temperature,
         "repetition_penalty": st.session_state.repetition_penalty,
         "n_results": st.session_state.n_results,
+        "image_count": st.session_state.image_count,
     })
     # print(type(payload), payload)
     headers = {'Content-Type': 'application/json'}
-    # url_map = {
-    #     "数据结构": "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer",
-    #     "软件项目管理": "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer",
-    # }
-    # url = url_map.get(option1)
+
     url = "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer"
+
     try:
         response = requests.post(url, data=payload, headers=headers)
-         # print(response, type(response))
-        return response.text
+        response_data = response.json()
+        if "response_text" in response_data:
+            result = {"response_text": response_data["response_text"]}
+            return result
+        else:
+            print(response.status_code)
+            return f"请求失败，状态码：", response.status_code
+    except requests.exceptions.Timeout:
+        print("请求超时，请稍后再试")
+        return "请求超时，请稍后再试", 504
     except Exception as e:
         error_message = f"错误: {e}\n{traceback.format_exc()}"
         print(error_message)
-        return "您的网络状态不佳，请稍后再试", 500
+        return "发生错误，请稍后再试", 500
 
 
 if option2 == "键盘":
