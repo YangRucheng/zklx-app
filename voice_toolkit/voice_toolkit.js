@@ -303,22 +303,15 @@ async function SayOut(text) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ text: text })
+            }
         });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log(data);
     } catch (error) {
         console.error('Error in SayOut:', error);
     }
 }
 
 SayOut();
+
 
 // 分割文段
 function SplitIntoSentences(text) {
