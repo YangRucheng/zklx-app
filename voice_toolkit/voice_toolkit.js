@@ -305,6 +305,8 @@ async function SayOut(text) {
                 'Content-Type': 'application/json'
             }
         });
+        const text = await response.text();
+        SayOutLoud(text);
     } catch (error) {
         console.error('Error in SayOut:', error);
     }
