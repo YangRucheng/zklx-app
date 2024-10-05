@@ -44,7 +44,7 @@ if "max_new_tokens" not in st.session_state:
     st.session_state["temperature"] = 0.1
     st.session_state["repetition_penalty"] = 1.1
 st.sidebar.title('参数')
-with st.sidebar.expander("文本生成"):
+with st.sidebar.expander("内容生成"):
     parameter_5 = st.slider('n_results', min_value=1, max_value=5, value=st.session_state.n_results, step=1)
     parameter_1 = st.slider('max_new_tokens', min_value=50, max_value=1000,
                             value=st.session_state.max_new_tokens, step=50)
