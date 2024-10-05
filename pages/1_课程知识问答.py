@@ -60,8 +60,9 @@ with st.sidebar.expander("文本生成"):
     st.session_state["temperature"] = parameter_3
     st.session_state["repetition_penalty"] = parameter_4
 
+
 st.title("📝 智课灵犀")
-st.caption("🌈 基于预先构建的知识库来进行问答")
+st.caption("🌈 基于课程知识库进行问答")
 
 
 # 状态
@@ -122,8 +123,8 @@ if option2 == "键盘":
         st.session_state.messages.append({"role": "user", "message": prompt})
         st.chat_message("user").write(prompt)
         answer = send_message()
-        st.session_state.messages.append({"role": "assistant", "message": answer})
-        st.chat_message("assistant").write(answer)
+        st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
+        st.chat_message("assistant").write(answer["response_text"])
         print(st.session_state)
 
 elif option2 == "语音":
@@ -142,8 +143,10 @@ elif option2 == "语音":
         st.session_state.messages.append({"role": "user", "message": prompt})
         st.chat_message("user").write(prompt)
         answer = send_message()
-        st.session_state.messages.append({"role": "assistant", "message": answer})
-        st.chat_message("assistant").write(answer)
+        st.session_state.messages.append({"role": "assistant", "message": answer["response_text"]})
+        st.chat_message("assistant").write(answer["response_text"])
+
+        # print(st.session_state)
 
         st.session_state.user_voice_value = ""
         st.rerun()
@@ -158,4 +161,3 @@ elif option2 == "语音":
         if vocie_result["voice_result"]["flag"] == "final":
             st.session_state["voice_flag"] = "final"
             st.rerun()
-
