@@ -5,6 +5,7 @@ import base64
 import requests
 import json
 from voice_toolkit import voice_toolkit
+from io import BytesIO
 
 icon_path = "images/院徽.ico"
 
@@ -88,6 +89,16 @@ if "messages" not in st.session_state:
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["message"])
+
+
+def base64_to_image(base64_str):
+    try:
+        img_data = base64.b64decode(base64_str)
+        img = Image.open(BytesIO(img_data))
+        return img
+    except Exception as e:
+        print(f"无法解码图像: {e}")
+        return None
 
 
 def send_message():
