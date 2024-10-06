@@ -315,7 +315,7 @@ async function SayOut() {
         SayOutLoud(text);
     } catch (error) {
         console.error("Error in SayOut:", error);
-        SayOutLoud("语音请求失败，请检查网络连接。");
+        SayOutLoud("语音请求失败。");
     }
 }
 
