@@ -1,4 +1,3 @@
-from io import BytesIO
 import streamlit as st
 from PIL import Image
 import base64
@@ -99,31 +98,24 @@ def send_message():
     headers = {'Content-Type': 'application/json'}
 
     url = "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer"
-    # try:
-    #   response = requests.post(url, data=payload, headers=headers)
-    #     # print(response, type(response))
-    #    return response.text
-    # except Exception as e:
-    #    error_message = f"错误: {e}\n{traceback.format_exc()}"
-    #    print(error_message)
-    #    return "您的网络状态不佳，请稍后再试", 500
+
     try:
         response = requests.post(url, data=payload, headers=headers)
         response_data = response.json()
         if "response_text" in response_data:
             result = {"response_text": response_data["response_text"]}
             return result
-        
         else:
-            print(response.status_code)
-            return f"请求失败，状态码：", response.status_code
+            # print(response.status_code)
+            return {"response_text": f"请求失败，状态码：{response.status_code}"}
     except requests.exceptions.Timeout:
-        print("请求超时，请稍后再试")
-        return "请求超时，请稍后再试", 504
+        # print("请求超时，请稍后再试")
+        return {"response_text": "请求超时，请稍后再试"}
     except Exception as e:
         error_message = f"错误: {e}\n{traceback.format_exc()}"
-        print(error_message)
-        return "发生错误，请稍后再试", 500
+        # print(error_message)
+        return {"response_text": "发生错误，请稍后再试"}
+
 
 
 if option2 == "键盘":
@@ -169,4 +161,3 @@ elif option2 == "语音":
         if vocie_result["voice_result"]["flag"] == "final":
             st.session_state["voice_flag"] = "final"
             st.rerun()
-
