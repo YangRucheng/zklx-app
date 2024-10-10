@@ -128,16 +128,15 @@ def send_message():
                 result["response_image"] = response_data["response_image"]
             return result
         else:
-            print(response.status_code)
-            return f"请求失败，状态码：", response.status_code
+            # print(response.status_code)
+            return {"response_text": f"请求失败，状态码：{response.status_code}"}
     except requests.exceptions.Timeout:
-        print("请求超时，请稍后再试")
-        return "请求超时，请稍后再试", 504
+        # print("请求超时，请稍后再试")
+        return {"response_text": "请求超时，请稍后再试"}
     except Exception as e:
         error_message = f"错误: {e}\n{traceback.format_exc()}"
-        print(error_message)
-        return "发生错误，请稍后再试", 500
-
+        # print(error_message)
+        return {"response_text": "发生错误，请稍后再试"}
 
 
 if option2 == "键盘":
