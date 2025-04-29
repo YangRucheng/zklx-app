@@ -97,7 +97,7 @@ def send_message():
     # print(type(payload), payload)
     headers = {'Content-Type': 'application/json'}
 
-    url = "http://zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer"
+    url = "http://xtu_zklx.xtu.vip.cpolar.top/api-dev/qa/get_answer"
 
     try:
         response = requests.post(url, data=payload, headers=headers)
