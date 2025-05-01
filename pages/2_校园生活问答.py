@@ -42,7 +42,7 @@ if "max_new_tokens" not in st.session_state:
     st.session_state["temperature"] = 0.1
     st.session_state["repetition_penalty"] = 1.0
 if "n_results" not in st.session_state:
-    st.session_state["n_results"] = 2
+    st.session_state["n_results"] = 1
 if "image_count" not in st.session_state:
     st.session_state["image_count"] = 0
 st.sidebar.title('参数')
